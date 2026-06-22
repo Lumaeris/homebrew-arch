@@ -1,0 +1,34 @@
+# Maintainer: Jill Fiore <contact@lumaeris.com>
+pkgname=homebrew
+pkgver=6.0.2 # renovate: datasource=github-releases depName=Homebrew/brew
+pkgrel=1
+pkgdesc="The Missing Package Manager for macOS (or Linux)"
+arch=(x86_64)
+url="https://github.com/Lumaeris/homebrew-arch.git"
+makedepends=('sudo' 'git' 'curl' 'zstd')
+depends=('git' 'curl' 'zstd')
+provides=('brew')
+conflicts=('brew' 'brew-git' 'linuxbrew' 'linuxbrew-git')
+license=('BSD-2-Clause AND Apache-2.0')
+source=(ublue-brew::"git+https://github.com/ublue-os/brew.git"
+        ${pkgname}::"git+https://github.com/${pkgname}/install.git"
+        install.patch::"https://github.com/secureblue/${pkgname}/raw/f52ad9f26510667e467f17c2f330da68a870e592/${pkgname}-install.patch")
+sha256sums=('SKIP'
+            'SKIP'
+            '1d8eee3c5df133c501f89c504635e1c6587a9b25c8473b71229b04a464e29af4')
+
+prepare() {
+  patch < install.patch ${pkgname}/install.sh
+}
+
+build() {
+  env --ignore-environment "PATH=/usr/bin:/bin:/usr/sbin:/sbin" "HOME=/home/linuxbrew" "NONINTERACTIVE=1" /usr/bin/bash ${pkgname}/install.sh
+}
+
+package() {
+  cp -a "${srcdir}/ublue-brew/system_files/." "${pkgdir}"
+  cd ${srcdir}
+  mkdir -p home/linuxbrew
+  mv .linuxbrew home/linuxbrew/
+  tar --zstd -cvf "${pkgdir}/usr/share/${pkgname}.tar.zst" "home/linuxbrew/.linuxbrew"
+}

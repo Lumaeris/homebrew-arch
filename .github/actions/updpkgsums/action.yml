@@ -1,0 +1,13 @@
+name: 'Validate & Update Package Sums of Arch Linux Packages GitHub Action'
+description: 'Validate & Update Package Sums of Arch Linux Packages GitHub Action'
+
+inputs:
+  pkgname:
+    description: ''
+    required: true
+
+runs:
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.pkgname }}
