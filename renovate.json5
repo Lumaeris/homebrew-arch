@@ -11,5 +11,12 @@
       ],
       "extractVersionTemplate": "^v?(?<version>.*)$"
     }
+  ],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchUpdateTypes": ["digest", "pinDigest", "pin"],
+      "matchDepNames": ["docker.io/library/archlinux"]
+    }
   ]
 }
