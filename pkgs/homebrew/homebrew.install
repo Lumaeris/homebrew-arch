@@ -1,0 +1,4 @@
+post_install() {
+    echo "==> Adding Homebrew profile to global bashrc..."
+    echo -e 'source /etc/profile.d/brew.sh' >> /etc/bash.bashrc
+}
