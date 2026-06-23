@@ -1,12 +1,13 @@
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=homebrew
-pkgver=6.0.3 # renovate: datasource=github-releases depName=Homebrew/brew
-pkgrel=1
+pkgver=6.0.3 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
+pkgrel=2
 pkgdesc="The Missing Package Manager for macOS (or Linux)"
 arch=(x86_64)
 url="https://github.com/Lumaeris/${pkgname}-arch.git"
 makedepends=('sudo' 'git' 'curl' 'zstd')
 depends=('git' 'curl' 'zstd')
+optdepends=('brew-proxy: dbus-activated proxy service for secure setup')
 provides=('brew')
 conflicts=('brew' 'brew-git' 'linuxbrew' 'linuxbrew-git')
 license=('BSD-2-Clause AND Apache-2.0')
@@ -14,22 +15,22 @@ install=${pkgname}.install
 source=(ublue-brew::"git+https://github.com/ublue-os/brew.git"
         ${pkgname}::"git+https://github.com/${pkgname}/install.git"
         install.patch::"https://github.com/secureblue/${pkgname}/raw/f52ad9f26510667e467f17c2f330da68a870e592/${pkgname}-install.patch")
-sha256sums=('SKIP'
+sha512sums=('SKIP'
             'SKIP'
-            '1d8eee3c5df133c501f89c504635e1c6587a9b25c8473b71229b04a464e29af4')
+            '264e1e0a3c807ebce43e918ac1172f37ef6a0934dc0f2a17bd2327b79fc6ba00e1718ec0fc2bc25113650a89b4f4dd4548a87a9f13537b9e6410ab9e98787b2a')
 
 prepare() {
-  patch < install.patch ${pkgname}/install.sh
+    patch < install.patch ${pkgname}/install.sh
 }
 
 build() {
-  env --ignore-environment "PATH=/usr/bin:/bin:/usr/sbin:/sbin" "HOME=/home/linuxbrew" "NONINTERACTIVE=1" /usr/bin/bash ${pkgname}/install.sh
+    env --ignore-environment "PATH=/usr/bin:/bin:/usr/sbin:/sbin" "HOME=/home/linuxbrew" "NONINTERACTIVE=1" /usr/bin/bash ${pkgname}/install.sh
 }
 
 package() {
-  cp -a "${srcdir}/ublue-brew/system_files/." "${pkgdir}"
-  cd ${srcdir}
-  mkdir -p home/linuxbrew
-  mv .linuxbrew home/linuxbrew/
-  tar --zstd -cvf "${pkgdir}/usr/share/${pkgname}.tar.zst" "home/linuxbrew/.linuxbrew"
+    cp -a "${srcdir}/ublue-brew/system_files/." "${pkgdir}"
+    cd ${srcdir}
+    mkdir -p home/linuxbrew
+    mv .linuxbrew home/linuxbrew/
+    tar --zstd -cvf "${pkgdir}/usr/share/${pkgname}.tar.zst" "home/linuxbrew/.linuxbrew"
 }

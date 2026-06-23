@@ -1,6 +1,6 @@
-# Homebrew Package for Arch Linux Bootc
+# Homebrew Packages for Arch Linux Bootc
 
-Originally created for [stargaze](https://github.com/Lumaeris/stargaze), this repository contains an Homebrew package meant to be used in [arch-bootc](https://github.com/bootcrew/mono) images.
+Originally created for [stargaze](https://github.com/Lumaeris/stargaze), this repository contains an Homebrew package meant to be used in [arch-bootc](https://github.com/bootcrew/mono) images and [brew-proxy](https://codeberg.org/HastD/brew-proxy) for a more secure Homebrew setup.
 
 ## Using the repository
 

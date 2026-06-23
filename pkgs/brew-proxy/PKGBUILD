@@ -1,0 +1,28 @@
+# Maintainer: SmuJayB <smujaybdev@protonmail.com>
+# Maintainer: Jill Fiore <contact@lumaeris.com>
+pkgname=brew-proxy
+pkgver=0.3.0 # renovate: datasource=forgejo-releases depName=HastD/brew-proxy registryUrl=https://codeberg.org/
+pkgrel=1
+pkgdesc='DBus-activated proxy service for a more secure Homebrew setup on Linux'
+arch=('x86_64')
+url=https://codeberg.org/HastD/$pkgname
+license=('Apache-2.0' 'CC0-1.0' 'MIT')
+makedepends=('meson' 'cargo' 'rust')
+source=("https://codeberg.org/HastD/$pkgname/archive/v$pkgver.zip"
+        selinux.patch::"https://codeberg.org/HastD/$pkgname/commit/5f03f3c5dc6c42bd2feef889e044194c1dc1cc50.patch")
+sha512sums=('96f351557c9559017983cdeee6b46393166ce0959f08c5e41649ee52ee503e3bc37fd9dd8689acaed172f57a422cde51de6c09538ce0315ad1340253f68b9728'
+            '52f8a24bcca2212d6e26fdfef00da09b2aaec9b6be5d51d1b9fc3143102af0ff9cd0e3e4675ce812d5e53fa333ec342efc573ef3472e0d6547df239bd979e5d5')
+
+prepare() {
+	cd "${srcdir}/$pkgname"
+	patch -p1 < ../selinux.patch
+}
+
+build() {
+	meson setup build -Dprefix=/usr -Dselinux=disabled "${srcdir}/$pkgname"
+	meson compile -C build
+}
+
+package() {
+	DESTDIR="${pkgdir}" meson install -C build
+}
