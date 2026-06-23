@@ -1,0 +1,18 @@
+pkgbase = brew-proxy
+	pkgdesc = DBus-activated proxy service for a more secure Homebrew setup on Linux
+	pkgver = 0.3.0
+	pkgrel = 1
+	url = https://codeberg.org/HastD/brew-proxy
+	arch = x86_64
+	license = Apache-2.0
+	license = CC0-1.0
+	license = MIT
+	makedepends = meson
+	makedepends = cargo
+	makedepends = rust
+	source = https://codeberg.org/HastD/brew-proxy/archive/v0.3.0.zip
+	source = selinux.patch::https://codeberg.org/HastD/brew-proxy/commit/5f03f3c5dc6c42bd2feef889e044194c1dc1cc50.patch
+	sha512sums = 96f351557c9559017983cdeee6b46393166ce0959f08c5e41649ee52ee503e3bc37fd9dd8689acaed172f57a422cde51de6c09538ce0315ad1340253f68b9728
+	sha512sums = 52f8a24bcca2212d6e26fdfef00da09b2aaec9b6be5d51d1b9fc3143102af0ff9cd0e3e4675ce812d5e53fa333ec342efc573ef3472e0d6547df239bd979e5d5
+
+pkgname = brew-proxy
