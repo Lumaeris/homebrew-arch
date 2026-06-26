@@ -1,6 +1,6 @@
 pkgbase = homebrew
 	pkgdesc = The Missing Package Manager for macOS (or Linux)
-	pkgver = 6.0.4
+	pkgver = 6.0.5
 	pkgrel = 1
 	url = https://github.com/Lumaeris/homebrew-arch.git
 	install = homebrew.install
