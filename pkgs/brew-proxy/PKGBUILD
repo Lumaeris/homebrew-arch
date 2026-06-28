@@ -1,7 +1,7 @@
 # Maintainer: SmuJayB <smujaybdev@protonmail.com>
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=brew-proxy
-pkgver=0.3.0 # renovate: datasource=forgejo-releases depName=HastD/brew-proxy registryUrl=https://codeberg.org/
+pkgver=0.3.1 # renovate: datasource=forgejo-releases depName=HastD/brew-proxy registryUrl=https://codeberg.org/
 pkgrel=1
 pkgdesc='DBus-activated proxy service for a more secure Homebrew setup on Linux'
 arch=('x86_64')
