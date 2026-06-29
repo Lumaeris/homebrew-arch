@@ -1,0 +1,4 @@
+post_install() {
+    echo "==> Adding brew-proxy profile to global bashrc..."
+    echo -e 'source /etc/profile.d/brew-proxy.sh' >> /etc/bash.bashrc
+}
