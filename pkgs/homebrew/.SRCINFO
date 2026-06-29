@@ -1,11 +1,12 @@
 pkgbase = homebrew
 	pkgdesc = The Missing Package Manager for macOS (or Linux)
 	pkgver = 6.0.5
-	pkgrel = 1
-	url = https://github.com/Lumaeris/homebrew-arch.git
+	pkgrel = 2
+	url = https://github.com/homebrew/brew
 	install = homebrew.install
 	arch = x86_64
-	license = BSD-2-Clause AND Apache-2.0
+	license = BSD-2-Clause
+	license = Apache-2.0
 	makedepends = sudo
 	makedepends = git
 	makedepends = curl

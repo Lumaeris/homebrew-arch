@@ -1,16 +1,16 @@
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=homebrew
 pkgver=6.0.5 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
-pkgrel=1
+pkgrel=2
 pkgdesc="The Missing Package Manager for macOS (or Linux)"
 arch=(x86_64)
-url="https://github.com/Lumaeris/${pkgname}-arch.git"
+url="https://github.com/${pkgname}/brew"
 makedepends=('sudo' 'git' 'curl' 'zstd')
 depends=('git' 'curl' 'zstd')
 optdepends=('brew-proxy: dbus-activated proxy service for secure setup')
 provides=('brew')
 conflicts=('brew' 'brew-git' 'linuxbrew' 'linuxbrew-git')
-license=('BSD-2-Clause AND Apache-2.0')
+license=('BSD-2-Clause' 'Apache-2.0')
 install=${pkgname}.install
 source=(ublue-brew::"git+https://github.com/ublue-os/brew.git"
         ${pkgname}::"git+https://github.com/${pkgname}/install.git"
