@@ -1,6 +1,6 @@
 pkgbase = homebrew
 	pkgdesc = The Missing Package Manager for macOS (or Linux)
-	pkgver = 6.0.6
+	pkgver = 6.0.7
 	pkgrel = 1
 	url = https://github.com/homebrew/brew
 	install = homebrew.install
