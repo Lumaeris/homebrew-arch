@@ -1,6 +1,6 @@
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=homebrew
-pkgver=6.0.8 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
+pkgver=6.0.9 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
 pkgrel=1
 pkgdesc="The Missing Package Manager for macOS (or Linux)"
 arch=(x86_64)
