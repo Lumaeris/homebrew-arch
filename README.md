@@ -1,6 +1,6 @@
 # Homebrew Packages for Arch Linux Bootc
 
-Originally created for [stargaze](https://github.com/Lumaeris/stargaze), this repository contains an Homebrew package meant to be used in [arch-bootc](https://github.com/bootcrew/mono) images and [brew-proxy](https://codeberg.org/HastD/brew-proxy) for a more secure Homebrew setup.
+This repository contains an Homebrew package meant to be used in [arch-bootc](https://github.com/bootcrew/mono) images and [brew-proxy](https://codeberg.org/HastD/brew-proxy) for a more secure Homebrew setup.
 
 ## Using the repository
 
@@ -23,6 +23,7 @@ Afterwards, sync your repositories with `pacman -Sy`, and then install a package
 
 ```bash
 pacman -S homebrew
+pacman -S brew-proxy # optionally
 ```
 
 ## Credits

@@ -1,7 +1,7 @@
 pkgbase = brew-proxy
 	pkgdesc = DBus-activated proxy service for a more secure Homebrew setup on Linux
 	pkgver = 0.3.2
-	pkgrel = 2
+	pkgrel = 3
 	url = https://codeberg.org/HastD/brew-proxy
 	install = brew-proxy.install
 	arch = x86_64
@@ -18,3 +18,5 @@ pkgbase = brew-proxy
 
 pkgname = brew-proxy
 	depends = homebrew
+	depends = dbus
+	depends = polkit
