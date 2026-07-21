@@ -11,7 +11,7 @@ makedepends=('meson' 'cargo' 'rust')
 install=${pkgname}.install
 source=("https://codeberg.org/HastD/$pkgname/archive/v$pkgver.zip"
         40-brew-proxy.preset)
-sha512sums=('71589567bf57dbd5ab864d347398447d06d0d2e94b58c1f005c917a3eaf8b13f6c51beb7cf373190075b3f65baf2df25a2422b35c23f8e5e72e232c138714de4'
+sha512sums=('b48c5d0d788fb0248e30a9f19534ce92219547944fdb4491ad9ed6a068eecf72f436cf38c064fb6db48cfcfa961d01f06adab5d02096759c8fc2797c3351cc7b'
             '5b0f5a68e9aec79edf36973a835cb88e33709f3b48641c79e521fd8c2cc0bdd442ab41acfc61d0ec6f505be6bfe4b9be33f47ee29885acdc7941a2255ab88012')
 
 build() {
