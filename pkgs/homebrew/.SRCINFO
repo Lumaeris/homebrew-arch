@@ -1,6 +1,6 @@
 pkgbase = homebrew
 	pkgdesc = The Missing Package Manager for macOS (or Linux)
-	pkgver = 6.0.22
+	pkgver = 7.0.0
 	pkgrel = 1
 	url = https://github.com/homebrew/brew
 	install = homebrew.install
@@ -21,9 +21,9 @@ pkgbase = homebrew
 	conflicts = linuxbrew-git
 	source = ublue-brew::git+https://github.com/ublue-os/brew.git
 	source = homebrew::git+https://github.com/homebrew/install.git
-	source = install.patch::https://github.com/secureblue/homebrew/raw/f52ad9f26510667e467f17c2f330da68a870e592/homebrew-install.patch
+	source = install.patch
 	sha512sums = SKIP
 	sha512sums = SKIP
-	sha512sums = 264e1e0a3c807ebce43e918ac1172f37ef6a0934dc0f2a17bd2327b79fc6ba00e1718ec0fc2bc25113650a89b4f4dd4548a87a9f13537b9e6410ab9e98787b2a
+	sha512sums = 92b32012aaf7f84605f37f51c719df483eb2ab1e412dc30065756f91329a02a22717e0550502ed12496cc9ad51f7e7e1d30238e537255ebf80aa8b49ccac847d
 
 pkgname = homebrew

@@ -1,6 +1,6 @@
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=homebrew
-pkgver=6.0.22 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
+pkgver=7.0.0 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
 pkgrel=1
 pkgdesc="The Missing Package Manager for macOS (or Linux)"
 arch=(x86_64)
@@ -14,10 +14,10 @@ license=('BSD-2-Clause' 'Apache-2.0')
 install=${pkgname}.install
 source=(ublue-brew::"git+https://github.com/ublue-os/brew.git"
         ${pkgname}::"git+https://github.com/${pkgname}/install.git"
-        install.patch::"https://github.com/secureblue/${pkgname}/raw/f52ad9f26510667e467f17c2f330da68a870e592/${pkgname}-install.patch")
+        install.patch)
 sha512sums=('SKIP'
             'SKIP'
-            '264e1e0a3c807ebce43e918ac1172f37ef6a0934dc0f2a17bd2327b79fc6ba00e1718ec0fc2bc25113650a89b4f4dd4548a87a9f13537b9e6410ab9e98787b2a')
+            '92b32012aaf7f84605f37f51c719df483eb2ab1e412dc30065756f91329a02a22717e0550502ed12496cc9ad51f7e7e1d30238e537255ebf80aa8b49ccac847d')
 
 prepare() {
     patch < install.patch ${pkgname}/install.sh
@@ -25,8 +25,6 @@ prepare() {
 
 build() {
     env --ignore-environment "PATH=/usr/bin:/bin:/usr/sbin:/sbin" "HOME=/home/linuxbrew" "NONINTERACTIVE=1" /usr/bin/bash ${pkgname}/install.sh
-    mkdir -p home/linuxbrew
-    mv .linuxbrew home/linuxbrew/
 }
 
 package() {

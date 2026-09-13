@@ -1,0 +1,50 @@
+--- install.sh	2026-09-13 20:34:04.156898459 +0700
++++ install-patch.sh	2026-09-13 20:36:16.688599416 +0700
+@@ -176,9 +176,8 @@
+   UNAME_MACHINE="$(uname -m)"
+ 
+   # On Linux, this script installs to /home/linuxbrew/.linuxbrew only
+-  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
++  HOMEBREW_PREFIX="${PWD}/home/linuxbrew/.linuxbrew"
+   HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}/Homebrew"
+-  HOMEBREW_CACHE="${HOME}/.cache/Homebrew"
+ 
+   STAT_PRINTF=("/usr/bin/stat" "-c")
+   PERMISSION_FORMAT="%a"
+@@ -791,27 +790,6 @@
+ fi
+ execute_sudo "${CHOWN[@]}" "-R" "${USER}:${GROUP}" "${HOMEBREW_REPOSITORY}"
+ 
+-if ! [[ -d "${HOMEBREW_CACHE}" ]]
+-then
+-  execute "${MKDIR[@]}" "${HOMEBREW_CACHE}"
+-fi
+-if exists_but_not_writable "${HOMEBREW_CACHE}"
+-then
+-  execute_sudo "${CHMOD[@]}" "g+rwx" "${HOMEBREW_CACHE}"
+-fi
+-if file_not_owned "${HOMEBREW_CACHE}"
+-then
+-  execute_sudo "${CHOWN[@]}" "-R" "${USER}" "${HOMEBREW_CACHE}"
+-fi
+-if file_not_grpowned "${HOMEBREW_CACHE}"
+-then
+-  execute_sudo "${CHGRP[@]}" "-R" "${GROUP}" "${HOMEBREW_CACHE}"
+-fi
+-if [[ -d "${HOMEBREW_CACHE}" ]]
+-then
+-  execute "${TOUCH[@]}" "${HOMEBREW_CACHE}/.cleaned"
+-fi
+-
+ if should_install_command_line_tools
+ then
+   ohai "Searching online for the Command Line Tools"
+@@ -1002,8 +980,6 @@
+     PATH_WARN=1
+   fi
+ 
+-  execute "${HOMEBREW_PREFIX}/bin/brew" "update" "--force" "--quiet"
+-
+   if [[ -n "${PATH_WARN-}" ]]
+   then
+     warn "${HOMEBREW_PREFIX}/bin is not in your PATH.
