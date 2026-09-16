@@ -1,6 +1,6 @@
 pkgbase = homebrew
 	pkgdesc = The Missing Package Manager for macOS (or Linux)
-	pkgver = 7.0.1
+	pkgver = 7.0.2
 	pkgrel = 1
 	url = https://github.com/homebrew/brew
 	install = homebrew.install
@@ -24,6 +24,6 @@ pkgbase = homebrew
 	source = install.patch
 	sha512sums = SKIP
 	sha512sums = SKIP
-	sha512sums = 92b32012aaf7f84605f37f51c719df483eb2ab1e412dc30065756f91329a02a22717e0550502ed12496cc9ad51f7e7e1d30238e537255ebf80aa8b49ccac847d
+	sha512sums = 154cbcc12e531db29c53d7f58045a87a9765ff029f3f001d183f8451d78be0fe71c3ab02caeb8a083f17f8e11031e8918b1804dd3d5b0bfcf7376e6e04066419
 
 pkgname = homebrew

@@ -1,6 +1,6 @@
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=homebrew
-pkgver=7.0.1 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
+pkgver=7.0.2 # renovate: datasource=github-releases depName=Homebrew/brew registryUrl=https://github.com/
 pkgrel=1
 pkgdesc="The Missing Package Manager for macOS (or Linux)"
 arch=(x86_64)
@@ -17,7 +17,7 @@ source=(ublue-brew::"git+https://github.com/ublue-os/brew.git"
         install.patch)
 sha512sums=('SKIP'
             'SKIP'
-            '92b32012aaf7f84605f37f51c719df483eb2ab1e412dc30065756f91329a02a22717e0550502ed12496cc9ad51f7e7e1d30238e537255ebf80aa8b49ccac847d')
+            '154cbcc12e531db29c53d7f58045a87a9765ff029f3f001d183f8451d78be0fe71c3ab02caeb8a083f17f8e11031e8918b1804dd3d5b0bfcf7376e6e04066419')
 
 prepare() {
     patch < install.patch ${pkgname}/install.sh
