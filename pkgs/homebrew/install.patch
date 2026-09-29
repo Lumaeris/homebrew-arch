@@ -1,6 +1,6 @@
---- install.sh	2026-09-16 08:46:05.622616554 +0700
-+++ install-patch.sh	2026-09-16 08:49:59.514327943 +0700
-@@ -184,8 +184,7 @@
+--- install.sh	2026-09-29 16:19:36.817309663 +0700
++++ install-patch.sh	2026-09-29 16:21:14.381816887 +0700
+@@ -195,8 +195,7 @@
  else
    UNAME_MACHINE="$(uname -m)"
  
@@ -10,7 +10,7 @@
  
    STAT_PRINTF=("/usr/bin/stat" "-c")
    PERMISSION_FORMAT="%a"
-@@ -821,26 +820,6 @@
+@@ -852,30 +851,6 @@
  fi
  execute_sudo "${CHOWN[@]}" "-R" "${USER}:${GROUP}" "${HOMEBREW_REPOSITORY}"
  
@@ -20,7 +20,7 @@
 -fi
 -if exists_but_not_writable "${HOMEBREW_CACHE}"
 -then
--  execute_sudo "${CHMOD[@]}" "g+rwx" "${HOMEBREW_CACHE}"
+-  execute_sudo "${CHMOD[@]}" "u+rwx,${GROUP_CHMOD}" "${HOMEBREW_CACHE}"
 -fi
 -if file_not_owned "${HOMEBREW_CACHE}"
 -then
@@ -30,6 +30,10 @@
 -then
 -  execute_sudo "${CHGRP[@]}" "-R" "${GROUP}" "${HOMEBREW_CACHE}"
 -fi
+-if [[ "${GROUP_CHMOD}" == go-w ]]
+-then
+-  execute_sudo "${CHMOD[@]}" -R go-w "${HOMEBREW_PREFIX}" "${HOMEBREW_CACHE}"
+-fi
 -if [[ -d "${HOMEBREW_CACHE}" ]]
 -then
 -  execute "${TOUCH[@]}" "${HOMEBREW_CACHE}/.cleaned"
@@ -37,7 +41,7 @@
  
  if should_install_command_line_tools
  then
-@@ -1032,7 +1011,6 @@
+@@ -1089,7 +1064,6 @@
      PATH_WARN=1
    fi
  
