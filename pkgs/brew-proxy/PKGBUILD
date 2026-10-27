@@ -1,7 +1,7 @@
 # Maintainer: SmuJayB <smujaybdev@protonmail.com>
 # Maintainer: Jill Fiore <contact@lumaeris.com>
 pkgname=brew-proxy
-pkgver=0.3.7 # renovate: datasource=forgejo-releases depName=HastD/brew-proxy registryUrl=https://codeberg.org/
+pkgver=0.3.8 # renovate: datasource=forgejo-releases depName=HastD/brew-proxy registryUrl=https://codeberg.org/
 pkgrel=1
 pkgdesc='DBus-activated proxy service for a more secure Homebrew setup on Linux'
 arch=('x86_64')
@@ -11,7 +11,7 @@ makedepends=('meson' 'cargo' 'rust')
 install=${pkgname}.install
 source=("https://codeberg.org/HastD/$pkgname/archive/v$pkgver.zip"
         40-brew-proxy.preset)
-sha512sums=('82a42dc350ba206802cf6fc780d65c7a04bb8945d566e6842f1dd244a511f8ace232dd1301c33d9606ea68b0fe01e1c7b1ddee8bccccab9e43214223232eafc5'
+sha512sums=('24ee6b127d20466550b9e1e50ddaef5a44f8bb64886e593b4e7b3f4d1c38bb480fcedf54fefcd01686e752f12dc117d334c59f918cd3de7fe7433ced60417586'
             'f2c8e680a27a158c1c9980c6e64e6eeccf43cd6efe89f362409f51f9fb8f19c57cd390285e5c12f8a3188dff432bcda800270b1bea24bb7fd5927f5f238a334b')
 
 build() {
